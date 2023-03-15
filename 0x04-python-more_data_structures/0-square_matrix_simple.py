@@ -2,9 +2,19 @@
 
 def square_matrix_simple(matrix=[]):
 
-    if not matrix:
+    new_matrix = matrix.copy()
 
-        print()
+    for i in range(len(matrix)):
 
-    return [[item**2 for item in row] for row in matrix]
+        new_matrix[i] = list(map(lambda x: x**2, matrix[i]))
+
+    return (new_matrix)
+
+
+
+    
+
+   
+
+
 
