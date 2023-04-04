@@ -4,9 +4,12 @@ import sys
 
 def safe_function(fct, *args):
     try:
-        res = fct(*args)
-    except BaseException as e:
-        res = None
-        print("Exception: {}".format(e), file=sys.stderr)
-    finally:
-        return res
+        result = fct(*args)
+    except ZeroDivisionError:
+        result = None
+        sys.stderr.write("Exception: division by zero\n")
+    except IndexError:
+        result = None
+        sys.stderr.write("Exception: list index out of range\n")
+
+    return result
